@@ -1,0 +1,127 @@
+/* Animate outer background with a smooth RGB gradient */
+@keyframes bodyBgShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2a6c);
+  background-size: 400% 400%;
+  animation: bodyBgShift 15s ease infinite;
+}
+
+/* Login box styling (remains animated internally) */
+@keyframes rainbowBackground {
+  0% { background: linear-gradient(135deg, #ff0000, #ff7f00); }
+  25% { background: linear-gradient(135deg, #ffff00, #00ff00); }
+  50% { background: linear-gradient(135deg, #0000ff, #4b0082); }
+  75% { background: linear-gradient(135deg, #8f00ff, #ff1493); }
+  100% { background: linear-gradient(135deg, #ff0000, #ff7f00); }
+}
+
+.card-signin {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 2rem;
+  overflow: hidden;
+  animation: rainbowBackground 8s infinite linear;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 2rem;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-signin .btn {
+  font-size: 1rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  padding: 0.8rem;
+  background: #ffffff;
+  color: #333;
+  transition: 0.3s ease-in-out;
+  width: 100%;
+}
+
+.form-signin .btn:hover {
+  background: #4CAF50;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-label-group input {
+  width: 100%;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 2rem;
+  background: #fff;
+  color: #333;
+  font-size: 1rem;
+}
+
+.form-label-group label {
+  position: absolute;
+  top: 0.9rem;
+  left: 1.5rem;
+  color: #999;
+  font-size: 0.95rem;
+  transition: 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.form-label-group input:focus ~ label,
+.form-label-group input:not(:placeholder-shown) ~ label {
+  top: -10px;
+  left: 1rem;
+  font-size: 0.8rem;
+  color: #4CAF50;
+  background: white;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.stylish-heading {
+  font-family: 'Lobster', cursive;
+  font-size: 2.2rem;
+  text-align: center;
+  background: linear-gradient(270deg, #30cfd0, #330867);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: animateHeading 5s ease infinite;
+}
+@keyframes animateHeading {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

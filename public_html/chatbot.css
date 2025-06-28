@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Floating chat button (unchanged) */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 63px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-button::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    background: conic-gradient(
+        red,
+        orange,
+        yellow,
+        green,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+    z-index: -1;
+    animation: rotateBorder 3s linear infinite;
+    mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black 100%);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black 100%);
+}
+
+.chat-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Hover effect */
+.chat-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 25px rgba(0, 255, 255, 0.8);
+}
+
+/* Click effect */
+.chat-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px yellow;
+}
+
+/* Rotating RGC border */
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Chat Container with RGB border */
+.chat-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 340px;
+    background: #0f0f0f;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+    border: 3px solid;
+    border-image: linear-gradient(135deg, #ff004c, #00fff3, #ffd700, #00ff88) 1;
+    animation: borderRGB 5s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* RGB Border Animation */
+@keyframes borderRGB {
+    0% {
+        border-image: linear-gradient(135deg, #ff004c, #00fff3, #ffd700, #00ff88) 1;
+    }
+    50% {
+        border-image: linear-gradient(135deg, #00ff88, #ffd700, #00fff3, #ff004c) 1;
+    }
+    100% {
+        border-image: linear-gradient(135deg, #ff004c, #00fff3, #ffd700, #00ff88) 1;
+    }
+}
+
+/* Chat Header - Futuristic Gradient */
+.chat-header {
+    background: linear-gradient(90deg, #ff0057, #1b00ff, #00fff7);
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+}
+
+/* Close Button */
+.close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Chat Body */
+.chat-body {
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #141414;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Scrollbar style */
+.chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-body::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+/* Messages */
+.bot-message, .user-message {
+    padding: 10px 15px;
+    border-radius: 12px;
+    max-width: 80%;
+    word-wrap: break-word;
+    font-size: 14px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.bot-message {
+    background: linear-gradient(135deg, #2222ff, #8844ff);
+    color: white;
+    align-self: flex-start;
+}
+
+.user-message {
+    background: linear-gradient(135deg, #ff0066, #ffa600);
+    color: white;
+    align-self: flex-end;
+}
+
+/* Chat Footer */
+.chat-footer {
+    display: flex;
+    border-top: 1px solid #333;
+    padding: 10px;
+    background: #1a1a1a;
+}
+
+.chat-footer input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    background: #2d2d2d;
+    color: white;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.05);
+}
+
+.chat-footer button {
+    background: linear-gradient(90deg, #ff0066, #00ffff);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.chat-footer button:hover {
+    background: linear-gradient(90deg, #00ffff, #ff0066);
+}
+/* Add this keyframe for RGB neon light animation */
+@keyframes rgbGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Modify only this section for chat body */
+.chat-body {
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    background: linear-gradient(270deg, #ff004c, #00fff3, #ffd700, #00ff88);
+    background-size: 800% 800%;
+    animation: rgbGlow 10s ease infinite;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1), inset 0 0 20px rgba(255, 0, 255, 0.05);
+}
+
+/* Scrollbar style remains same */
+.chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-body::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
